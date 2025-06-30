@@ -80,6 +80,11 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 // Serve Swagger API documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
+// Hello World Route
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({ message: 'Welcome to FlashLearn API' });
+});
+
 // Auth Routes 
 app.use('/api/auth', authRoutes);
 
