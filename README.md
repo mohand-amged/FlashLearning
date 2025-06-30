@@ -35,7 +35,7 @@ The full Swagger docs are available after running the project:
 
 ➡️ [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
-![Dashboard](images/images/Screenshot 2025-06-30 035306.png)
+![Dashboard](images/Screenshot 2025-06-30 035306.png)
 ---
 
 ## 🔧 Installation & Setup
