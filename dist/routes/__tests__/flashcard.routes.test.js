@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const mongodb_memory_server_1 = require("mongodb-memory-server");
 const mongoose_1 = __importDefault(require("mongoose"));
-const app_1 = __importDefault(require("../../app"));
+const app_1 = __importDefault(require("../../api/app"));
 const user_model_1 = __importDefault(require("../../models/user.model"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 let mongoServer;
