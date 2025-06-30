@@ -36,6 +36,7 @@ The full Swagger docs are available after running the project:
 ➡️ [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
 ![Dashboard](https://github.com/mohand-amged/FlashLearning/blob/main/images/Screenshot%202025-06-30%20035306.png)
+(https://github.com/mohand-amged/FlashLearning/blob/main/images/Screenshot%202025-06-30%20035336.png)
 ---
 
 ## 🔧 Installation & Setup
