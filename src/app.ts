@@ -5,6 +5,8 @@ import authRoutes from './routes/auth.route';
 import flashcardRoutes from './routes/flashcard.routes';
 import subjectRoutes from './routes/subject.routes';
 import { errorHandler } from './Middlewares/errorMiddleware';
+import config from './config/config';
+import connectDB from './config/db';
 
 const app = express();
 app.use(express.json());
@@ -96,5 +98,13 @@ app.use('/api/flashcards', flashcardRoutes)
 
 // Error handling middleware (global)
 app.use(errorHandler)
+
+const PORT = config.port || 5000;
+
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+});
 
 export default app;

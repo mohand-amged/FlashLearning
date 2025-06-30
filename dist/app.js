@@ -10,6 +10,8 @@ const auth_route_1 = __importDefault(require("./routes/auth.route"));
 const flashcard_routes_1 = __importDefault(require("./routes/flashcard.routes"));
 const subject_routes_1 = __importDefault(require("./routes/subject.routes"));
 const errorMiddleware_1 = require("./Middlewares/errorMiddleware");
+const config_1 = __importDefault(require("./config/config"));
+const db_1 = __importDefault(require("./config/db"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 const swaggerOptions = {
@@ -92,4 +94,10 @@ app.use('/api/subjects', subject_routes_1.default);
 app.use('/api/flashcards', flashcard_routes_1.default);
 // Error handling middleware (global)
 app.use(errorMiddleware_1.errorHandler);
+const PORT = config_1.default.port || 5000;
+(0, db_1.default)().then(() => {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+    });
+});
 exports.default = app;
