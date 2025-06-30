@@ -1,7 +1,7 @@
 {
   "name": "flashlearn-api",
   "version": "1.0.0",
-  "main": "app.ts",
+  "main": "api/app.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
