@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const mongodb_memory_server_1 = require("mongodb-memory-server");
 const mongoose_1 = __importDefault(require("mongoose"));
-const app_1 = __importDefault(require("../../api/app"));
+const api_1 = __importDefault(require("../../api"));
 const user_model_1 = __importDefault(require("../../models/user.model"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 let mongoServer;
@@ -35,7 +35,7 @@ afterAll(async () => {
 describe('Flashcard API', () => {
     let flashcardId;
     it('should create a new flashcard for the authenticated user', async () => {
-        const res = await (0, supertest_1.default)(app_1.default)
+        const res = await (0, supertest_1.default)(api_1.default)
             .post('/api/flashcards')
             .set('Authorization', `Bearer ${token}`)
             .send({
@@ -48,7 +48,7 @@ describe('Flashcard API', () => {
         flashcardId = res.body._id;
     });
     it('should not create a flashcard with invalid data', async () => {
-        const res = await (0, supertest_1.default)(app_1.default)
+        const res = await (0, supertest_1.default)(api_1.default)
             .post('/api/flashcards')
             .set('Authorization', `Bearer ${token}`)
             .send({
@@ -59,7 +59,7 @@ describe('Flashcard API', () => {
         expect(res.statusCode).toEqual(400);
     });
     it('should get all flashcards for the authenticated user', async () => {
-        const res = await (0, supertest_1.default)(app_1.default)
+        const res = await (0, supertest_1.default)(api_1.default)
             .get('/api/flashcards')
             .set('Authorization', `Bearer ${token}`);
         expect(res.statusCode).toEqual(200);
@@ -67,14 +67,14 @@ describe('Flashcard API', () => {
         expect(res.body.length).toBe(1);
     });
     it('should get a specific flashcard by ID', async () => {
-        const res = await (0, supertest_1.default)(app_1.default)
+        const res = await (0, supertest_1.default)(api_1.default)
             .get(`/api/flashcards/${flashcardId}`)
             .set('Authorization', `Bearer ${token}`);
         expect(res.statusCode).toEqual(200);
         expect(res.body).toHaveProperty('_id', flashcardId);
     });
     it('should update a flashcard', async () => {
-        const res = await (0, supertest_1.default)(app_1.default)
+        const res = await (0, supertest_1.default)(api_1.default)
             .put(`/api/flashcards/${flashcardId}`)
             .set('Authorization', `Bearer ${token}`)
             .send({
@@ -86,14 +86,14 @@ describe('Flashcard API', () => {
         expect(res.body).toHaveProperty('front', 'Updated Question');
     });
     it('should delete a flashcard', async () => {
-        const res = await (0, supertest_1.default)(app_1.default)
+        const res = await (0, supertest_1.default)(api_1.default)
             .delete(`/api/flashcards/${flashcardId}`)
             .set('Authorization', `Bearer ${token}`);
         expect(res.statusCode).toEqual(200);
         expect(res.body).toHaveProperty('message', 'Flashcard deleted successfully');
     });
     it('should not find a deleted flashcard', async () => {
-        const res = await (0, supertest_1.default)(app_1.default)
+        const res = await (0, supertest_1.default)(api_1.default)
             .get(`/api/flashcards/${flashcardId}`)
             .set('Authorization', `Bearer ${token}`);
         expect(res.statusCode).toEqual(404);

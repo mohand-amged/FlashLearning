@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-import app from '../../api/app';
+import app from '../../api';
 import User from '../../models/user.model';
 import jwt from 'jsonwebtoken';
 

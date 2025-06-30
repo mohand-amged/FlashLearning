@@ -1,12 +1,12 @@
 {
   "name": "flashlearn-api",
   "version": "1.0.0",
-  "main": "api/app.js",
+  "main": "api/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "start": "node dist/app.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
+    "start": "node dist/api/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/api/index.ts"
   },
   "keywords": [],
   "author": "",
