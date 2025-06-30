@@ -1,12 +1,12 @@
 import express, { Request, Response } from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import authRoutes from '../routes/auth.route';
-import flashcardRoutes from '../routes/flashcard.routes';
-import subjectRoutes from '../routes/subject.routes';
-import { errorHandler } from '../Middlewares/errorMiddleware';
-import config from '../config/config';
-import connectDB from '../config/db';
+import authRoutes from './routes/auth.route';
+import flashcardRoutes from './routes/flashcard.routes';
+import subjectRoutes from './routes/subject.routes';
+import { errorHandler } from './Middlewares/errorMiddleware';
+import config from './config/config';
+import connectDB from './config/db';
 
 const app = express();
 app.use(express.json());
