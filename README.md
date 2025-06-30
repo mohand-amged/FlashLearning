@@ -34,7 +34,10 @@ A smart flashcard-based learning API built with **Node.js**, **Express**, **Mong
 The full Swagger docs are available after running the project:
 
 ➡️ [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+
 [alt text](images/Screenshot 2025-06-30 035306.png)
+
+
 [alt text](images/Screenshot 2025-06-30 035336.png)
 ---
 
