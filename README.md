@@ -22,7 +22,7 @@ A smart flashcard-based learning API built with **Node.js**, **Express**, **Mong
 
 ## 📦 Tech Stack
 
-- **Backend**: Node.js, Express.js
+- **Backend**: Node.js, Express.js (Typescript)
 - **Database**: MongoDB with Mongoose
 - **Auth**: JSON Web Token (JWT)
 - **Documentation**: Swagger (OpenAPI)
